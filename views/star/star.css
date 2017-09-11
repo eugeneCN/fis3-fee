@@ -1,0 +1,27 @@
+.star {
+  text-align: center;
+  font-size: 0;
+}
+
+i.icon {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  margin: 0 3px;
+  vertical-align: middle;
+}
+
+i.icon.on {
+  background: url('assets/star48_on@3x.png?__sprite') no-repeat;
+  background-size: 100%;
+}
+
+i.icon.half {
+  background: url('assets/star48_half@3x.png?__sprite') no-repeat;
+  background-size: 100%;
+}
+
+i.icon.off {
+  background: url('assets/star48_off@3x.png?__sprite') no-repeat;
+  background-size: 100%;
+}
