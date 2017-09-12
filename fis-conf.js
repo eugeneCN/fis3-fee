@@ -1,24 +1,16 @@
+/**
+ * @desc    fis3配置文件
+ * @author  zhangWuQiang
+ * @date    2017年09月12日
+ */
+var eslintConf = require('./conf/eslint.js');
+var resourcesConf = require('./conf/resources.js');
+var packConf = require('./conf/pack.js');
+
 // 设置项目属性
 fis.set('app.name', 'fis3-fee');
 fis.set('app.static', '/static');
 fis.set('app.root', '/');
-
-// eslint config
-var eslint = {
-  ignoreFiles: [],
-  envs: [],
-  globals: [],
-  rules: {
-    'arrow-parens': 0,
-    'generator-star-spacing': 0,
-    'space-before-function-paren': 0,
-    'indent': ['warn', 2],
-    'no-tabs': 0,
-    'semi': ['error', 'always'],
-    'wrap-iife': 0,
-    'null': 0
-  }
-};
 
 // 启用插件
 fis.hook('relative');
@@ -43,9 +35,9 @@ fis.hook('commonjs', {
  *  ===================开发目录规范===================
  */
 
-// ------ 开启同名依赖 ------
+// ------ 关闭同名依赖 (true为打开) ------
 fis.match('/views/**', {
-  useSameNameRequire: true
+  useSameNameRequire: false
 });
 
 // ------ 全局配置 ------
@@ -97,29 +89,10 @@ fis.match('/mock/server.conf', {
   release: '/config/server.conf'
 });
 
-// ------ 静态资源配置 ------
-var config = {
-  modules: {
-    scss: /^\/modules\/(.*\.scss)$/i,
-    less: /^\/modules\/(.*\.less)$/i,
-    style: /^\/modules\/(.*\.(scss|less|css))$/i,
-    script: /^\/modules\/(.*\.js)$/i,
-    eslint: /^\/modules\/(.*\.js)$/i,
-    images: /^\/modules\/(.*\.(png|jpg|gif|svg))$/i
-  },
-  views: {
-    scss: /^\/views\/(.*\.scss)$/i,
-    less: /^\/views\/(.*\.less)$/i,
-    style: /^\/views\/(.*\.(scss|less|css))$/i,
-    script: /^\/views\/(.*\.es)$/i,
-    eslint: /^\/views\/(.*\.js)$/i,
-    images: /^\/views\/(.*\.(png|jpg|gif|svg))$/i
-  }
-}
 
 // ------ 配置modules views 资源文件 ------
-Object.keys(config).forEach(function (k) {
-  var obj = config[k];
+Object.keys(resourcesConf).forEach(function (k) {
+  var obj = resourcesConf[k];
 
   // ------ 配置scss ------
   fis.match(obj.scss, {
@@ -158,7 +131,7 @@ Object.keys(config).forEach(function (k) {
 
   // ------ 配置eslint------
   fis.match(obj.eslint, {
-    lint: fis.plugin('noob-eslint', eslint)
+    lint: fis.plugin('noob-eslint', eslintConf)
   })
 })
 
@@ -174,108 +147,9 @@ fis.match('::package', {
   })
 });
 
-// debug后缀 不会压缩
-var map = {
-  'dev': {
-    host: '',
-    path: ''
-  },
-  'prod': {
-    host: '',
-    path: ''
-  }
-};
 
-/**
- *  1.替换url前缀
- *  2.添加mr5码
- *  3.打包
- *  4.合图
- *  5.重新定义资源路径
- */
-Object.keys(map).forEach(function (v) {
-  var o = map[v];
-  var domain = o.host + o.path;
-  fis.media(v)
-    .match('**.{es,js}', {
-      useHash: true,
-      domain: domain
-    })
-    .match('**.{scss,less,css}', {
-      useSprite: true,
-      useHash: true,
-      domain: domain
-    })
-    .match('::image', {
-      useHash: true,
-      domain: domain
-    })
-    .match('**/(*_{x,y,z}.png)', {
-      release: './pkg/img/$1'
-    })
-    // 启用打包插件，必须 ::package
-    .match('::package', {
-      spriter: fis.plugin('csssprites', {
-        layout: 'matrix',
-        scale: 0.5,
-        margin: '10'
-      }),
-      packager: fis.plugin('deps-pack', {
-        'pkg/lib.css': [
-          '/modules/css/**.css',
-          '/modules/css/**.less',
-          '/modules/css/**.scss'
-        ],
-        'pkg/common.css': [
-          '/modules/common/**.css',
-          '/modules/common/**.less',
-          '/modules/common/**.scss'
-        ],
-        'pkg/lib.js': [
-          'lib/mod.js:deps',
-          'components/**/**.js:deps'
-        ],
-        'pkg/common.js': [
-          'modules/**/**.js:deps'
-        ]
-      }),
-      postpackager: fis.plugin('loader', {
-        allInOne: true,
-      })
-    })
-});
-
-
-// 压缩css js html
-Object.keys(map)
-  .filter(function (v) {
-    return v.indexOf('debug') < 0
-  })
-  .forEach(function (v) {
-    fis.media(v)
-      .match('**.html', {
-        optimizer: fis.plugin('html-compress')
-      })
-      .match('**.{es,js}', {
-        optimizer: fis.plugin('uglify-js')
-      })
-      .match('**.{scss,less,css}', {
-        optimizer: fis.plugin('clean-css', {
-          //保持一个规则一个换行
-          'keepBreaks': true
-        })
-      });
-  });
-
-// 本地产出
-fis.media('prod')
-  .match('**', {
-    deploy: [
-      fis.plugin('skip-packed', {
-        ignore: []
-      }),
-      fis.plugin('local-deliver', {
-        to: 'output'
-      })
-    ]
-  });
+// release
+var media = fis.env()._media;
+if (media !== 'dev') {
+  packConf[media](media);
+}

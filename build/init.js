@@ -13,13 +13,15 @@ const development = process.env.dev
 
 // logs
 
-console.log(chalk.blue.bold(`
-  ${chalk['red'].bold('┏ FIS3-FEE --------------------------------')}
-    appName: ${chalk.yellow(name)}
-    development: ${chalk.yellow(development)}
-    description: ${chalk.yellow(description)}
-  ${chalk['red'].bold('┗ -----------------------------------------')}
-`))
+function startLog() {
+  console.log(chalk.blue.bold(`
+    ${chalk['red'].bold('┏ FIS3-FEE --------------------------------')}
+      appName: ${chalk.yellow(name)}
+      development: ${chalk.yellow(development)}
+      description: ${chalk.yellow(description)}
+    ${chalk['red'].bold('┗ -----------------------------------------')}
+  `))
+}
 
 function start() {
   del.sync(['modules/js/config.js'])
@@ -47,4 +49,9 @@ if (process.env.del) {
   process.exit()
 }
 
-start();
+// console.log(typeof process.env.dev)
+
+if (typeof Boolean(process.env.dev) === 'boolean') {
+  start();
+  startLog();
+}

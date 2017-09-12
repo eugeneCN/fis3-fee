@@ -7,9 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "start": "npm run clean && npm run dev && npm run dep",
-    "dev": "fis3 server start",
-    "dep": "cross-env dev=true node build/init.js && fis3 release -wl",
+    "start": "fis3 server start",
+    "dev": "fis3 server start && cross-env dev=true node build/init.js && fis3 release dev -wl",
+    "dep": "cross-env dev=true node build/init.js && fis3 release dev -wl",
     "build": "npm run del && cross-env dev=false node build/init.js && fis3 release prod",
     "del": "del=true node build/init.js",
     "open": "fis3 server open",

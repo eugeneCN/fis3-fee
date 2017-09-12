@@ -5,6 +5,9 @@
  */
 const { api, ajax, loadTpl } = require('js/app');
 const { local, session } = require('js/storage');
+
+require('./index.less');
+require('./component/list.less');
 /**
  *  方法区
  */

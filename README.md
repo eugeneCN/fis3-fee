@@ -23,9 +23,9 @@ npm install
 fis3 install
 
 # 开启fis服务器 (命令如下)
-npm run start   --  一键 start release -wl
-npm run dev     --  启动fis服务
+npm run dev     --  一键 start release -wl
 npm run dep     --  发布项目到fis启动的服务，同时监听
+npm run start   --  启动fis服务
 npm run build   --  打包发布到本地
 npm run del     --  删除已打包发布到本地的代码
 npm run open    --  打开fis本地服务器
@@ -47,6 +47,7 @@ npm run init:prod   -- 发布代码
 ``` bash
 
 |____build
+|____conf
 |____components
 |____lib
 |____mock
@@ -69,7 +70,8 @@ npm run init:prod   -- 发布代码
   - mock            -- moke数据
   - modules         -- 包含 模块、静态资源
   - views           -- 视图页面
-  - fis-conf.js     -- fis配置文件
+  - conf            -- fis配置文件
+  - fis-conf.js     -- fis配置入口文件
   - component.json  -- fis组件库配置文件
   - index.html      -- 页面入口
   - package.json    -- 依赖配置

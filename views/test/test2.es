@@ -1,1 +1,1 @@
-console.log('test2.es')
+console.log('test2.es');
