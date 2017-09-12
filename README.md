@@ -47,8 +47,8 @@ npm run init:prod   -- 发布代码
 ``` bash
 
 |____build
-|____conf
 |____components
+|____conf
 |____lib
 |____mock
 |____modules
