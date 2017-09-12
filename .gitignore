@@ -1,5 +1,6 @@
 .DS_Store
-components/
+jquery/
+lodash/
 node_modules/
 npm-debug.log
 npm-debug.log.*
