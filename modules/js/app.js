@@ -85,7 +85,7 @@ module.exports = function (self) {
    *  @param {String} url             请求地址
    *  @param {String} type            请求的类型
    *  @param {Object} param           请求参数
-   *  @param {Function} callback      请求成功后，这里会有两个参数,服务器返回数据，返回状态，[data, res]
+   *  @param {Function} callback      请求成功后，服务器返回数据
    *  @param return
    */
   self.ajax = function (url, type, param, callback) {
