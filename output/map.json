@@ -1,0 +1,212 @@
+{
+    "res": {
+        "lib/mod.js": {
+            "uri": "/static/lib/mod_88b9d1d.js",
+            "type": "js"
+        },
+        "modules/widget/header/header.js": {
+            "uri": "/pkg/modules/widget/header/header_c612588.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "modules/widget/header/header"
+            },
+            "deps": [
+                "modules/js/app.js"
+            ],
+            "aioPkg": "pkg/views/test/test.html_aio.js"
+        },
+        "views/index/index.es": {
+            "uri": "/pkg/views/index/index_633c7dd.js",
+            "type": "js",
+            "deps": [
+                "modules/js/app.js",
+                "modules/js/storage.js",
+                "views/index/index.less",
+                "views/index/component/list.less"
+            ],
+            "aioPkg": "pkg/views/index/index.html_aio.js"
+        },
+        "views/star/star.es": {
+            "uri": "/pkg/views/star/star_f16f435.js",
+            "type": "js",
+            "deps": [
+                "modules/js/app.js",
+                "views/star/star.css"
+            ]
+        },
+        "views/test/test.es": {
+            "uri": "/pkg/views/test/test_098f813.js",
+            "type": "js",
+            "deps": [
+                "modules/js/app.js",
+                "views/test/test.scss"
+            ],
+            "aioPkg": "pkg/views/test/test.html_aio.js"
+        },
+        "views/test/test2.es": {
+            "uri": "/pkg/views/test/test2_a9e3867.js",
+            "type": "js",
+            "deps": [
+                "modules/js/storage.js"
+            ],
+            "aioPkg": "pkg/views/test/test.html_aio.js"
+        },
+        "modules/js/app.js": {
+            "uri": "/pkg/modules/js/app_fe5883f.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "modules/js/app"
+            },
+            "deps": [
+                "components/jquery/jquery.js",
+                "components/lodash/lodash.js",
+                "modules/css/reset.css",
+                "modules/css/common/common.scss",
+                "modules/js/api.js",
+                "modules/js/config.js"
+            ],
+            "pkg": "p3"
+        },
+        "modules/js/storage.js": {
+            "uri": "/pkg/modules/js/storage_9dbdf9b.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "modules/js/storage"
+            },
+            "aioPkg": "pkg/views/test/test.html_aio.js"
+        },
+        "views/index/index.less": {
+            "uri": "/pkg/views/index/index_ff8517f.css",
+            "type": "css",
+            "aioPkg": "pkg/views/index/index.html_aio.css"
+        },
+        "views/index/component/list.less": {
+            "uri": "/pkg/views/index/component/list_6e19588.css",
+            "type": "css",
+            "aioPkg": "pkg/views/index/index.html_aio.css"
+        },
+        "views/star/assets/star48_on@3x.png": {
+            "uri": "/static/star/assets/star48_on@3x_7fd4909.png",
+            "type": "png",
+            "cssspritePkg": "views/star/star_0.5_z.png"
+        },
+        "views/star/assets/star48_half@3x.png": {
+            "uri": "/static/star/assets/star48_half@3x_0e36578.png",
+            "type": "png",
+            "cssspritePkg": "views/star/star_0.5_z.png"
+        },
+        "views/star/assets/star48_off@3x.png": {
+            "uri": "/static/star/assets/star48_off@3x_25f80be.png",
+            "type": "png",
+            "cssspritePkg": "views/star/star_0.5_z.png"
+        },
+        "views/star/star.css": {
+            "uri": "/pkg/views/star/star_7468572.css",
+            "type": "css"
+        },
+        "views/test/test.scss": {
+            "uri": "/pkg/views/test/test_8e29e8f.css",
+            "type": "css"
+        },
+        "components/jquery/jquery.js": {
+            "uri": "/static/components/jquery/jquery_16b5858.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "components/jquery/jquery"
+            },
+            "pkg": "p3"
+        },
+        "components/lodash/lodash.js": {
+            "uri": "/static/components/lodash/lodash_c0242d4.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "components/lodash/lodash"
+            },
+            "pkg": "p3"
+        },
+        "modules/css/reset.css": {
+            "uri": "/pkg/modules/css/reset_2ed6cfd.css",
+            "type": "css",
+            "pkg": "p0"
+        },
+        "modules/css/common/common.scss": {
+            "uri": "/pkg/modules/css/common/common_9c51f52.css",
+            "type": "css",
+            "pkg": "p0"
+        },
+        "modules/js/api.js": {
+            "uri": "/pkg/modules/js/api_9dddf91.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "modules/js/api"
+            },
+            "deps": [
+                "modules/js/config.js"
+            ],
+            "pkg": "p3"
+        },
+        "modules/js/config.js": {
+            "uri": "/pkg/modules/js/config_5866225.js",
+            "type": "js",
+            "extras": {
+                "moduleId": "modules/js/config"
+            },
+            "pkg": "p3"
+        },
+        "views/star/star_0.5_z.png": {
+            "uri": "/./pkg/img/star_0.5_z_4f49b37.png",
+            "type": "png"
+        }
+    },
+    "pkg": {
+        "p0": {
+            "uri": "/pkg/lib_c8cc3db.css",
+            "type": "css",
+            "has": [
+                "modules/css/reset.css",
+                "modules/css/common/common.scss"
+            ]
+        },
+        "p3": {
+            "uri": "/pkg/common_f91bcb2.js",
+            "type": "js",
+            "has": [
+                "components/jquery/jquery.js",
+                "components/lodash/lodash.js",
+                "modules/js/config.js",
+                "modules/js/api.js",
+                "modules/js/app.js"
+            ],
+            "deps": [
+                "modules/css/reset.css",
+                "modules/css/common/common.scss"
+            ]
+        },
+        "pkg/views/index/index.html_aio.js": {
+            "type": "js",
+            "uri": "/pkg/views/index/index.html_aio_f2c9564.js",
+            "has": [
+                "modules/js/storage.js",
+                "views/index/index.es"
+            ]
+        },
+        "pkg/views/index/index.html_aio.css": {
+            "type": "js",
+            "uri": "/pkg/views/index/index.html_aio_9988551.css",
+            "has": [
+                "views/index/index.less",
+                "views/index/component/list.less"
+            ]
+        },
+        "pkg/views/test/test.html_aio.js": {
+            "type": "js",
+            "uri": "/pkg/views/test/test.html_aio_93e077d.js",
+            "has": [
+                "modules/widget/header/header.js",
+                "views/test/test.es",
+                "modules/js/storage.js",
+                "views/test/test2.es"
+            ]
+        }
+    }
+}

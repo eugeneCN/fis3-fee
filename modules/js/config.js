@@ -4,4 +4,4 @@
  * @author  zhangWuQiang
  * @date    2017年09月10日
  */
-module.exports = { dev: true, logs: true };
+module.exports = { dev: false, logs: false };

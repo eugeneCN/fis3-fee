@@ -1,0 +1,5 @@
+.star{text-align:center;font-size:0}
+i.icon{display:inline-block;width:32px;height:32px;margin:0 3px;vertical-align:middle}
+i.icon.on{background-repeat: no-repeat;}
+i.icon.half{background-repeat: no-repeat;}
+i.icon.off{background-repeat: no-repeat;}i.icon.on{background-position:0px 0px}i.icon.half{background-position:-35px 0px}i.icon.off{background-position:0px -33.5px}i.icon.on,i.icon.half,i.icon.off{background-size: 70px 62px;background-image: url(../../img/star_0.5_z_4f49b37.png)}

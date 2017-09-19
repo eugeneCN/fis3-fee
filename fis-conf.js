@@ -9,8 +9,11 @@ var packConf = require('./conf/pack.js');
 
 // 设置项目属性
 fis.set('app.name', 'fis3-fee');
-fis.set('app.static', '/static');
 fis.set('app.root', '/');
+fis.set('app.pkg', '/pkg');
+fis.set('app.static', '/static');
+fis.set('project.files', ['*.html', 'map.json']);
+
 
 // 启用插件
 fis.hook('relative');
@@ -21,9 +24,9 @@ fis.match('*', {
 })
 
 // 将views下的文件放根目录
-fis.match(/^\/views\/(.*\.*)$/i, {
-  release: '$1'
-})
+// fis.match(/^\/views\/(.*\.*)$/i, {
+//   release: '$1'
+// })
 
 // 引入模块化开发插件，规范为 commonJs 规范。
 fis.hook('commonjs', {
@@ -113,14 +116,14 @@ Object.keys(resourcesConf).forEach(function (k) {
     parser: fis.plugin('babel-5.x'),
     rExt: 'js',
     isMod: true,
-    release: '${app.static}/$1'
+    release: '${app.pkg}/$0'
   });
 
   // ------ 配置css------
   fis.match(obj.style, {
     rExt: '.css',
     isMod: true,
-    release: '${app.static}/$1'
+    release: '${app.pkg}/$0'
   });
 
   // ------ 配置img------
