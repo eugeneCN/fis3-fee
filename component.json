@@ -3,5 +3,5 @@
   "gihub": {
     "author": "fis-components"
   },
-  "dependencies": ["jquery", "lodash"]
+  "dependencies": ["jquery@1.8.3", "lodash@v3.10.1"]
 }
