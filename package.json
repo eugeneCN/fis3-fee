@@ -7,9 +7,10 @@
     "test": "test"
   },
   "scripts": {
-    "start": "fis3 server start",
-    "dev": "fis3 server start && cross-env dev=true node build/init.js && fis3 release dev -wl",
+    "start": "fis3 server start --type node",
+    "dev": "fis3 server start --type node && cross-env dev=true node build/init.js && fis3 release dev -wl",
     "dep": "cross-env dev=true node build/init.js && fis3 release dev -wl",
+    "debug": "cross-env dev=true node build/init.js && fis3 release debug",
     "build": "npm run del && cross-env dev=false node build/init.js && fis3 release prod",
     "del": "del=true node build/init.js",
     "open": "fis3 server open",

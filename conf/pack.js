@@ -34,7 +34,7 @@ module.exports = {
           '/modules/common/**.scss'
         ],
         'pkg/lib.js': [
-          'lib/mod.js:deps',
+          'components/**/**.js',
           'components/**/**.js:deps'
         ],
         'pkg/common.js': [

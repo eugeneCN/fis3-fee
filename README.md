@@ -26,6 +26,7 @@ fis3 install
 npm run dev     --  一键 start release -wl
 npm run dep     --  发布项目到fis启动的服务，同时监听
 npm run start   --  启动fis服务
+npm run debug   --  测试项目资源打包
 npm run build   --  打包发布到本地
 npm run del     --  删除已打包发布到本地的代码
 npm run open    --  打开fis本地服务器
