@@ -4,7 +4,6 @@
  * @date    2017年09月12日
  */
 var eslintConf = require('./conf/eslint.js');
-var resourcesConf = require('./conf/resources.js');
 var packConf = require('./conf/pack.js');
 
 // 设置项目属性
@@ -93,50 +92,50 @@ fis.match('/mock/server.conf', {
 });
 
 
-// ------ 配置modules views 资源文件 ------
-Object.keys(resourcesConf).forEach(function (k) {
-  var obj = resourcesConf[k];
+/**
+ *  ===================配置modules views 资源文件===================
+ */
 
-  // ------ 配置scss ------
-  fis.match(obj.scss, {
-    parser: fis.plugin('node-sass', {
-      include_paths: []
-    })
-  });
+// ------ es6转码配置 ------
+fis.match('/{views,modules}/**.{js,es,ts,tsx,jsx}', {
+  parser: fis.plugin('babel-5.x'),
+  rExt: 'js',
+  isMod: true,
+  release: '${app.pkg}/$0'
+});
 
-  // ------ 配置less ------
-  fis.match(obj.less, {
-    parser: fis.plugin('less', {
-      paths: []
-    })
-  });
-
-  // ------ 配置js ------
-  fis.match(obj.script, {
-    parser: fis.plugin('babel-5.x'),
-    rExt: 'js',
-    isMod: true,
-    release: '${app.pkg}/$0'
-  });
-
-  // ------ 配置css------
-  fis.match(obj.style, {
-    rExt: '.css',
-    isMod: true,
-    release: '${app.pkg}/$0'
-  });
-
-  // ------ 配置img------
-  fis.match(obj.images, {
-    useMap: true,
-    release: '${app.static}/$1'
-  });
-
-  // ------ 配置eslint------
-  fis.match(obj.eslint, {
-    lint: fis.plugin('noob-eslint', eslintConf)
+// ------ 配置scss ------
+fis.match('/{views,modules}/**.scss', {
+  parser: fis.plugin('node-sass', {
+    include_paths: []
   })
+});
+
+// ------ 配置less ------
+fis.match('/{views,modules}/**.less', {
+  parser: fis.plugin('less', {
+    paths: []
+  })
+});
+
+// ------ 配置css------
+fis.match('/{views,modules}/**.{scss,less,css}', {
+  rExt: '.css',
+  isMod: true,
+  release: '${app.pkg}/$0'
+});
+
+// ------ 配置img------
+fis.match('/{views,modules}/**.{png,jpg,gif,svg}', {
+  useMap: true,
+  release: '${app.static}/$1'
+});
+
+// ------ 配置eslint------
+fis.match('/{views,modules}/**.{js,es,ts,tsx,jsx}', {
+  lint: fis.plugin('noob-eslint', eslintConf)
 })
+
 
 /**
  *  ===================打包规范===================
